@@ -12,7 +12,7 @@ class CipherApp:
         self.notebook = ttk.Notebook(self.root)
         self.notebook.pack(fill="both", expand=True)
 
-        # Create tabs
+        # Create The  tabs
         self.caesar_tab = ttk.Frame(self.notebook)
         self.affine_tab = ttk.Frame(self.notebook)
         self.atbash_tab = ttk.Frame(self.notebook)
@@ -57,7 +57,7 @@ class CipherApp:
         self.caesar_decrypt_button.pack()
 
         # Create output field for Caesar cipher
-        self.caesar_output_label = tk.Label(self.caesar_tab, text="Output:", font=("Arial", 16))
+        self.caesar_output_label =tk.Label(self.caesar_tab, text="Output:", font=("Arial", 16.0))
         self.caesar_output_label.pack()
 
         self.caesar_output_text = tk.Text(self.caesar_tab, width=60, height=10, font=("Arial", 16))
@@ -71,7 +71,7 @@ class CipherApp:
         self.affine_input_entry.pack()
 
         # Create key entry for Affine cipher
-        self.affine_key_label = tk.Label(self.affine_tab, text="Affine key (a, b):", font=("Arial", 16))
+        self.affine_key_label = tk.Label(self.affine_tab,text="Affine key (a, b):", font=("Arial", 16))
         self.affine_key_label.pack()
 
         self.affine_key_entry = tk.Entry(self.affine_tab, width=20, font=("Arial", 16))
@@ -144,7 +144,7 @@ class CipherApp:
         self.vigenere_input_label = tk.Label(self.vigenere_tab, text="Enter text:", font=("Arial", 16))
         self.vigenere_input_label.pack()
 
-        self.vigenere_input_entry = tk.Entry(self.vigenere_tab, width=50, font=("Arial", 16))
+        self.vigenere_input_entry = tk.Entry(self.vigenere_tab, width= 50, font=("Arial", 16))
         self.vigenere_input_entry.pack()
 
         # Create key entry for Vigenere cipher
@@ -179,7 +179,7 @@ class CipherApp:
         self.beaufort_key_label = tk.Label(self.beaufort_tab, text="Beaufort key (word):", font=("Arial", 16))
         self.beaufort_key_label.pack()
 
-        self.beaufort_key_entry = tk.Entry(self.beaufort_tab, width=20, font=("Arial", 16))
+        self.beaufort_key_entry = tk.Entry(self.beaufort_tab, width=20 , font=("Arial", 16))
         self.beaufort_key_entry.pack()
 
         # Create encrypt/decrypt buttons for Beaufort cipher
@@ -221,10 +221,10 @@ class CipherApp:
         self.homophonic_output_label = tk.Label(self.homophonic_tab, text="Output:", font=("Arial", 16))
         self.homophonic_output_label.pack()
 
-        self.homophonic_output_text = tk.Text(self.homophonic_tab, width=60, height=10, font=("Arial", 16))
+        self.homophonic_output_text = tk.Text(self.homophonic_tab, width=60, height=10, font=("Arial", 16 ))
         self.homophonic_output_text.pack()
 
-        # Create input field for Polygram cipher
+        # Create Input field for Polygram cipher
         self.polygram_input_label = tk.Label(self.polygram_tab, text="Enter text:", font=("Arial", 16))
         self.polygram_input_label.pack()
 
@@ -308,7 +308,7 @@ class CipherApp:
         for char in text:
             if char.isalpha():
                 ascii_offset = 65 if char.isupper() else 97
-                result += chr((a * (ord(char) - ascii_offset) + b) % 26 + ascii_offset)
+                result += chr((a * (ord(char) - ascii_offset) +b) % 26 + ascii_offset)
             else:
                 result += char
         self.affine_output_text.delete(1.0, tk.END)
@@ -324,7 +324,7 @@ class CipherApp:
         for char in text:
             if char.isalpha():
                 ascii_offset = 65 if char.isupper() else 97
-                result += chr((a_inv * (ord(char) - ascii_offset - b)) % 26 + ascii_offset)
+                result += chr((a_inv * (ord(char) - ascii_offset -b)) % 26 + ascii_offset)
             else:
                 result += char
         self.affine_output_text.delete(1.0, tk.END)
@@ -336,7 +336,7 @@ class CipherApp:
         for char in text:
             if char.isalpha():
                 ascii_offset = 65 if char.isupper() else 97
-                result += chr(ascii_offset + (25 - (ord(char) - ascii_offset)))
+                result += chr(ascii_offset + (25-(ord(char) - ascii_offset)))
             else:
                 result += char
         self.atbash_output_text.delete(1.0, tk.END)
@@ -384,7 +384,7 @@ class CipherApp:
         for i in range(length):
             rail_lengths[rail] += 1
             if rail ==  0:
-                dir = 1
+                dir + 1
             elif rail == key - 1:
                 dir = -1
             rail += dir
@@ -440,7 +440,7 @@ class CipherApp:
         text = self.beaufort_input_entry.get()
         key = self.beaufort_key_entry.get()
         result = ""
-        key_index = 0
+        key_index =0
         for char in text:
             if char.isalpha():
                 ascii_offset = 65 if char.isupper() else 97
@@ -491,7 +491,7 @@ class CipherApp:
             result = ""
         for char in text:
             if char.isalpha():
-                result += key_dict[char]
+                result+= key_dict[char]
             else:
                 result += char
         self.homophonic_output_text.delete(1.0, tk.END)
@@ -543,7 +543,7 @@ class CipherApp:
 
     def pigpen_encrypt(self):
         text = self.pigpen_input_entry.get()
-        pigpen_dict = {'A': '1', 'B': '2', 'C': '3', 'D': '4', 'E': '5', 'F': '6', 'G': '7', 'H': '8', 'I': '9', 'J': '10', 'K': '11', 'L': '12', 'M': '13', 'N': '14', 'O': '15', 'P': '16', 'Q': '17', 'R': '18', 'S': '19', 'T': '20', 'U': '21', 'V': '22', 'W': '23', 'X': '24', 'Y': '25', 'Z': '26'}
+        pigpen_dict ={'A': '1', 'B': '2', 'C': '3', 'D': '4', 'E': '5', 'F': '6', 'G': '7', 'H': '8', 'I': '9', 'J': '10', 'K': '11', 'L': '12', 'M': '13', 'N': '14', 'O': '15', 'P': '16', 'Q': '17', 'R': '18', 'S': '19', 'T': '20', 'U': '21', 'V': '22', 'W': '23', 'X': '24', 'Y': '25', 'Z': '26'}
         result = ""
         for char in text:
             if char.isalpha():
@@ -568,3 +568,4 @@ class CipherApp:
 root = tk.Tk()
 app = CipherApp(root)
 root.mainloop()
+
